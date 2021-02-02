@@ -19,13 +19,12 @@ body{
 }
 .background{
  background-image: url('images/background.jpg');
+ font-family: 'Arvo', serif;
 }
 p{
- font-family: Courier; 
  color: white;
 }
-.synthwave{
- font-family: arial; 
+.synthwave{ 
  background: -webkit-linear-gradient(#e99ca7, #b45507);
  -webkit-background-clip: text;
  -webkit-text-fill-color: transparent;
@@ -38,20 +37,20 @@ p{
 .penguinImg{
   width:300px;
   height:400px;
-  animation: rotation 2s infinite linear; 
+  animation: rotation 5s infinite linear; 
 }
 .logo{
   width:70px;
   height:70px;
 }
 @keyframes rotation {
- from {
-   transform: rotate(0deg);
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
  }
- to {
-   transform: rotate(359deg);
- }
-}
 .input{
   font-family: "Courier";
   background-color: #a799c2;
@@ -62,3 +61,4 @@ p{
   font-size: 20px;
   color:white;
 }
+

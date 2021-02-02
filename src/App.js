@@ -1,11 +1,11 @@
 import React from 'react'; 
 import './App.css';
-import chip from './images/IMG_4933.JPG'
-import rosie from './images/IMG_4932.JPG'
-import insta_logo from './images/insta_logo.png'
-import fb_logo from './images/fb_logo.png'
-import penguin from './images/penguin.png'
-
+import chip from './images/IMG_4933.JPG';
+import rosie from './images/IMG_4932.JPG';
+import insta_logo from './images/insta_logo.png';
+import fb_logo from './images/fb_logo.png';
+import penguin from './images/penguin.png';
+import Navbar from './components/Navbar/Navbar';
 function App() {
   const growPenguin = () => {
     var penguin1 = document.getElementById('penguin1')
@@ -25,6 +25,7 @@ function App() {
   });
   return (
     <div className="background">
+        <Navbar />
         <h1 className="synthwave">Hello! My name is Camden Hao and welcome to my website!</h1>
         <link rel="stylesheet" href="style.css" />
         <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet" />
