@@ -6,6 +6,13 @@ import insta_logo from './images/insta_logo.png';
 import fb_logo from './images/fb_logo.png';
 import penguin from './images/penguin.png';
 import Navbar from './components/Navbar/Navbar';
+import Igloo from './Igloo';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom"; 
+
 function App() {
   const growPenguin = () => {
     var penguin1 = document.getElementById('penguin1')
@@ -25,71 +32,80 @@ function App() {
   });
   return (
     <div className="background">
+      <link rel="stylesheet" href="style.css" />
+      <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet" />
+      <Router>
         <Navbar />
-        <h1 className="synthwave">Hello! My name is Camden Hao and welcome to my website!</h1>
-        <link rel="stylesheet" href="style.css" />
-        <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet" />
-        <p style={{fontSize: '20px'}} className="synthwave"><b>A little more about me: I'm a '23 from the DC/Northern Virginia area. 
-            I love playing chess, working out, and struggling to figure out which html tags do what. 
-            I've seen Friends and How I Met Your Mother 7 times each. My favorite book is <i>Kane and Abel
-            </i> by Jeffrey Archer. My favorite animal is the 
-            <i className="em em-penguin" aria-role="presentation" aria-label="BIRD" />
-            , and I have two dogs!</b></p>
-        <div className="flex-container">
-          <div>
-            <figure>
-              <img src={rosie} alt="This is Rosie!" className="dogImg"/>
-              <figcaption>This is Rosie!</figcaption>
-            </figure> 
-          </div>
-          <div>
-            <figure>
-              <img src={chip} alt="And this is Chip!" className="dogImg"/>
-              <figcaption>And this is Chip!</figcaption> 
-            </figure>
-          </div> 
-          <div>
-            <figure>
-              <div id = "penguin1">
-                <h3 id = "penguinName">This penguin's name is _____</h3>
-                <input type = "text" onChange = {onChangeFunction} className = "input"/>
-                <img src={penguin} className="penguinImg" />
-                <figcaption><button id="penguinButton" onClick = {growPenguin} className = 'button'>Click me to make the penguin bigger!</button>
-                </figcaption>
+        <Switch>
+          <Route path="/Home"> 
+            <h1 className="synthwave">Hello! My name is Camden Hao and welcome to my website!</h1>
+            <p className="synthwave"><b>A little more about me: I'm a '23 from the DC/Northern Virginia area. 
+                I love playing chess, working out, and struggling to figure out which html tags do what. 
+                I've seen Friends and How I Met Your Mother 7 times each. My favorite book is <i>Kane and Abel
+                </i> by Jeffrey Archer. My favorite animal is the 
+                <i className="em em-penguin" aria-role="presentation" aria-label="BIRD" />
+                , and I have two dogs!</b></p>
+            <div className="flex-container">
+                <figure>
+                  <img src={rosie} alt="This is Rosie!" className="dogImg"/>
+                  <figcaption>This is Rosie!</figcaption>
+                </figure> 
+              <div>
+                <figure>
+                  <img src={chip} alt="And this is Chip!" className="dogImg"/>
+                  <figcaption>And this is Chip!</figcaption> 
+                </figure>
+              </div> 
+              <div>
+                <figure>
+                  <div id = "penguin1">
+                    <input type = "text" onChange = {onChangeFunction} className = "input"/>
+                    <img src={penguin} className="penguinImg" />
+                    <h3 id = "penguinName">This penguin's name is _____</h3>
+                    <figcaption><button id="penguinButton" onClick = {growPenguin} className = 'button'>Click me to make the penguin bigger!</button>
+                    </figcaption>
+                  </div>
+                </figure>
+              </div>          
+            </div>
+            <h3>These are the classes I'm taking this term:</h3>
+              <ul>
+                <li><a href="https://www.cs.dartmouth.edu/~deepc/Courses/S20/CS31.html" target="_blank">CS 31</a></li>
+                <li><a href="http://www.dartmouth.edu/~boolzhu/cosc70.01.html" target="_blank">CS 70</a></li>
+                <li><a href="https://dartmouth.smartcatalogiq.com/en/current/orc/Departments-Programs-Undergraduate/Middle-Eastern-Studies/MES-Middle-Eastern-Studies/MES-16-07" target="_blank">Arabian Nights</a></li>
+              </ul>
+          </Route>
+          <Route path="/Igloo">
+            <div className="igloo">
+              <Igloo className="igloo"/>
+            </div>
+          </Route>
+          <Route path="/Foods">
+            <h3>Here are my favorite Foods!</h3>
+            {foodMap}
+          </Route>
+          <Route path="/Socials">
+            <h3>Here are my socials!</h3> 
+            <div className="flex-container">
+                <a href="https://www.instagram.com/cam_hao/?hl=en" target="_blank">
+                  <figure> 
+                    <img src={insta_logo} className='logo' /> 
+                    <figcaption style={{color: 'white', fontSize: '11.5px'}}>My Instagram</figcaption> 
+                  </figure>
+                </a>
+              <div>
+                <a href="https://www.facebook.com/profile.php?id=100010491014285" target="_blank">
+                  <figure> 
+                    <img src={fb_logo} className='logo'/> 
+                    <figcaption style={{color: 'white', fontSize: '11.5px'}}>My Facebook</figcaption> 
+                  </figure>
+                </a>
               </div>
-            </figure>
-          </div>          
-        </div>
-        <h3>These are the classes I'm taking this term:</h3>
-        <div>
-          <ul>
-            <li><a href="https://www.cs.dartmouth.edu/~deepc/Courses/S20/CS31.html" target="_blank">CS 31</a></li>
-            <li><a href="http://www.dartmouth.edu/~boolzhu/cosc70.01.html" target="_blank">CS 70</a></li>
-            <li><a href="https://dartmouth.smartcatalogiq.com/en/current/orc/Departments-Programs-Undergraduate/Middle-Eastern-Studies/MES-Middle-Eastern-Studies/MES-16-07" target="_blank">Arabian Nights</a></li>
-          </ul>
-        </div>
-        <h3>Here are my favorite Foods!</h3>
-        <div>{foodMap}</div> 
-        <h3>Here are my socials!</h3> 
-        <div className="flex-container">
-          <div>
-            <a href="https://www.instagram.com/cam_hao/?hl=en" target="_blank">
-              <figure> 
-                <img src={insta_logo} className='logo' /> 
-                <figcaption style={{color: 'white', fontSize: '11.5px'}}>My Instagram</figcaption> 
-              </figure>
-            </a>
-          </div>
-          <div>
-            <a href="https://www.facebook.com/profile.php?id=100010491014285" target="_blank">
-              <figure> 
-                <img src={fb_logo} className='logo'/> 
-                <figcaption style={{color: 'white', fontSize: '11.5px'}}>My Facebook</figcaption> 
-              </figure>
-            </a>
-          </div>
-        </div>
-      </div>
+            </div>
+          </Route>
+        </Switch>
+      </Router>  
+    </div>
   );
  }
  

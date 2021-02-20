@@ -19,13 +19,29 @@ body{
 }
 .background{
  background-image: url('images/background.jpg');
+ background-size: cover;
  font-family: 'Arvo', serif;
+ position: fixed;
+ width: 100%;
+ height: 100%;
+}
+.igloo{
+  background-image: url('images/igloo.jpg');
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+.penguins{
+  display: flex;
+  flex-wrap: wrap-reverse;
 }
 p{
  color: white;
 }
 .synthwave{ 
  background: -webkit-linear-gradient(#e99ca7, #b45507);
+ font-size: 20px;
  -webkit-background-clip: text;
  -webkit-text-fill-color: transparent;
 }
@@ -60,5 +76,12 @@ p{
   width: 300px;
   font-size: 20px;
   color:white;
+}
+body, html {
+  height: 100%;
+  margin: 0;
+}
+#penguinName{
+  color: maroon;
 }
 

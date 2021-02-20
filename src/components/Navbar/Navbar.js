@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
 import { MenuItems } from "./MenuItems";
 import './Navbar.css';
-import { Button } from '../Button'
+import { Button } from '../Button';
+import { Link } from "react-router-dom";
+import Confetti from 'react-confetti';
 class Navbar extends Component {
-    state = { clicked: false }
-
+    state = { clicked: false,
+              confetti: false   
+            }
+    
     handleClick = () => {
         this.setState({ clicked: !this.state.clicked })
-    }
 
+    }
+    partyTime = () => {
+        this.setState({ confetti: !this.state.confetti })
+    }
+    
     render() {
         return(
             <nav className="NavbarItems">
@@ -20,14 +28,17 @@ class Navbar extends Component {
                     {MenuItems.map((item,index) => {
                         return (
                             <li key={index}>
-                                <a className={item.cName} href={item.url}>
+                                <Link to={`/${item.title}`} className={item.cName}>
                                 {item.title}
-                                </a>
+                                </Link>
                             </li>
                         )
                     })}
                 </ul>
-                <Button>Click me lol</Button>
+                <Button onClick={this.partyTime}>{this.state.confetti ?  'Confetti Reloading...' : 'Launch Confetti' }</Button>
+                <div>
+                    {(this.state.confetti) ? <Confetti recycle={false} onConfettiComplete={this.partyTime} /> : ''}
+                </div>
             </nav>
         )
     }
