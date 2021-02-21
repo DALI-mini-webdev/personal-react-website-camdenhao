@@ -14,16 +14,19 @@ import {
 } from "react-router-dom"; 
 
 function App() {
+  //enlarge rotating penguin by 10% on button click 
   const growPenguin = () => {
     var penguin1 = document.getElementById('penguin1')
     penguin1.style.transform = 'scale(1.1)'
     penguin1.style.transition = "transform 0.25s ease"
     document.getElementById("penguinButton").style.display = "none"
   }
+  //change text for penguin's name 
   const onChangeFunction = (event) => {
     var text = event.target.value
     document.getElementById('penguinName').innerHTML = "This penguin's name is " + text
   }
+  //for Foods tab: practice with mapping functions 
   const foodList = ["bacon", "pizza", "cookie", "fries"]
   const foodMap = foodList.map((food) => {
     return(
@@ -39,7 +42,7 @@ function App() {
         <Switch>
           <Route path="/Home"> 
             <h1 className="synthwave">Hello! My name is Camden Hao and welcome to my website!</h1>
-            <p className="synthwave"><b>A little more about me: I'm a '23 from the DC/Northern Virginia area. 
+            <p className="synthwave"><b>A little about me: I'm a '23 from the DC/Northern Virginia area. 
                 I love playing chess, working out, and struggling to figure out which html tags do what. 
                 I've seen Friends and How I Met Your Mother 7 times each. My favorite book is <i>Kane and Abel
                 </i> by Jeffrey Archer. My favorite animal is the 

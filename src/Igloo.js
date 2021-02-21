@@ -12,6 +12,7 @@ class Igloo extends Component {
             newPengImage: ''
         }
     }
+    //setter functions for pengui creation
     newPengNameFunction = (event) => {
         this.setState({ newPengName: event.target.value });
     }
@@ -20,6 +21,7 @@ class Igloo extends Component {
         this.setState({ newPengImage: event.target.value });
     }
 
+    //Adding penguin to list 
     savePengInfo = () => {
         let pengData = {
             name: this.state.newPengName,
@@ -31,10 +33,13 @@ class Igloo extends Component {
             pengID: this.state.pengID + 1,
         })
     }
+
+    //callback function
     delete = (id) => {
         this.setState({penguins: this.state.penguins.delete(id)})
     }
 
+    //initiates savePengInfo() after entering name in input field 
     handleKeyPress = (event) => {
         if(event.key === 'Enter'){
             this.savePengInfo();
