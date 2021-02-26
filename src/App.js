@@ -11,6 +11,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect
 } from "react-router-dom"; 
 
 function App() {
@@ -40,6 +41,9 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
+          <Route exact path="/">
+            <Redirect to="/Home" />
+          </Route>
           <Route path="/Home"> 
             <h1 className="synthwave">Hello! My name is Camden Hao and welcome to my website!</h1>
             <p className="synthwave"><b>A little about me: I'm a '23 from the DC/Northern Virginia area. 
